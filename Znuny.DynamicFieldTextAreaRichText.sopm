@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<otrs_package version="1.0">
+    <!-- GENERATED WITH OTRS::OPM::Maker::Command::sopm (1.4) -->
+    <Name>Znuny.DynamicFieldTextAreaRichText</Name>
+    <Version>0.1.0</Version>
+    <Framework>6.x</Framework>
+    <Vendor>samueldc</Vendor>
+    <URL>https://github.com/samueldc</URL>
+    <Description Lang="en">Znuny package to provide a rich text editor to dynamic field of type textarea</Description>
+    <License>GNU GENERAL PUBLIC LICENSE Version 2, June 1991</License>
+    <Filelist>
+        <File Permission="644" Location="Custom/Kernel/Modules/AgentTicketProcess.pm" />
+        <File Permission="644" Location="var/httpd/htdocs/js/thirdparty/prisma/Core.UI.RichTextEditorDFTA.js" />
+        <File Permission="644" Location="Kernel/Modules/AdminDynamicFieldRemoteDB.pm" />
+        <File Permission="644" Location="var/packagesetup/Znuny.DynamicFieldTextAreaRichText.pm" />
+    </Filelist>
+    <CodeInstall Type="post"><![CDATA[
+        $Kernel::OM->Get('var::packagesetup::' . $Param{Structure}->{Name}->{Content} )->CodeInstall();
+    ]]></CodeInstall>
+    <CodeUninstall Type="post"><![CDATA[
+        $Kernel::OM->Get('var::packagesetup::' . $Param{Structure}->{Name}->{Content} )->CodeUninstall();
+    ]]></CodeUninstall>
+    <CodeReinstall Type="post"><![CDATA[
+        $Kernel::OM->Get('var::packagesetup::' . $Param{Structure}->{Name}->{Content} )->CodeReinstall();
+    ]]></CodeReinstall>
+    <CodeUpgrade Type="post"><![CDATA[
+        $Kernel::OM->Get('var::packagesetup::' . $Param{Structure}->{Name}->{Content} )->CodeUpgrade();
+    ]]></CodeUpgrade>
+    <IntroInstall Type="post" Lang="en" Title="Install Information"><![CDATA[
+            <strong>WELCOME</strong><br />
+<br />
+You are about to install the OTRS module Znuny.DynamicFieldTextAreaRichText.<br />
+<br />
+<strong>Important Advice:</strong><br />
+<br />
+It is recommended to delete the JS OTRS-cache before you continue the use of this OTRS installation.
+    ]]></IntroInstall>
+    <IntroUpgrade Type="post" Lang="en" Title="Upgrade Information"><![CDATA[
+            <strong>WELCOME</strong><br />
+<br />
+You are about to upgrade the OTRS module Znuny.DynamicFieldTextAreaRichText.<br />
+<br />
+<strong>Important Advice:</strong><br />
+<br />
+It is recommended to delete the JS OTRS-cache before you continue the use of this OTRS installation.
+    ]]></IntroUpgrade>
+</otrs_package>
